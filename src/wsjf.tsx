@@ -176,5 +176,5 @@ var contextProvider = (context) => {
 }
 
 let extensionContext = VSS.getExtensionContext();
-VSS.register(`${extensionContext.publisherId}.${extensionContext.extensionId}.wsjf-work-item-form-observer`, formObserver);
-VSS.register(`${extensionContext.publisherId}.${extensionContext.extensionId}.wsjf-contextMenu`, contextProvider);
+VSS.register(`${extensionContext.publisherId}.${extensionContext.extensionId}.rpn-work-item-form-observer`, formObserver);
+VSS.register(`${extensionContext.publisherId}.${extensionContext.extensionId}.rpn-contextMenu`, contextProvider);
