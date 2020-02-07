@@ -60,18 +60,18 @@ export class Settings {
                 let fieldReferenceName: string = (this.getSelectedIndex() < 0) ? null : that.getFieldReferenceName(fieldName);
 
                 switch (this._id) {
-                    case "businessValue":
+                    case "Severity":
                         that._selectedFields.bvField = fieldReferenceName;
                         break;
-                    case "timeCriticality":
+                    case "Occurence":
                         that._selectedFields.tcField = fieldReferenceName;
                         break;
-                    case "rroevalue":
+                    case "Detection":
                         that._selectedFields.rvField = fieldReferenceName;
-                    case "effort":
+                    case "UsersAffected":
                         that._selectedFields.effortField = fieldReferenceName;
                         break;
-                    case "wsjf":
+                    case "RPN":
                         that._selectedFields.wsjfField = fieldReferenceName;
                         break;
                 }
@@ -116,19 +116,19 @@ export class Settings {
         this._menuBar = Controls.create<Menus.MenuBar, any>(Menus.MenuBar, container, menubarOptions);
 
         let bvContainer = $("<div />").addClass("settings-control").appendTo(container);
-        $("<label />").text("Business Value Field").appendTo(bvContainer);
+        $("<label />").text("Severity Field").appendTo(bvContainer);
 
         let tcContainer = $("<div />").addClass("settings-control").appendTo(container);
-        $("<label />").text("Time Criticality Field").appendTo(tcContainer);
+        $("<label />").text("Occurence Field").appendTo(tcContainer);
 
         let rvContainer = $("<div />").addClass("settings-control").appendTo(container);
-        $("<label />").text("RR-OE Values Field").appendTo(rvContainer);
+        $("<label />").text("Detection Values Field").appendTo(rvContainer);
 
         let effortContainer = $("<div />").addClass("settings-control").appendTo(container);
-        $("<label />").text("Effort Field").appendTo(effortContainer);
+        $("<label />").text("Users Affected Values Field").appendTo(effortContainer);
 
         let wsjfContainer = $("<div />").addClass("settings-control").appendTo(container);
-        $("<label />").text("WSJF Field").appendTo(wsjfContainer);            
+        $("<label />").text("RPN Field").appendTo(wsjfContainer);            
 
         VSS.getService<IExtensionDataService>(VSS.ServiceIds.ExtensionData).then((dataService: IExtensionDataService) => {
             dataService.getValue<StoredFieldReferences>("storedFields").then((storedFields:StoredFieldReferences) => {
@@ -140,20 +140,20 @@ export class Settings {
                     console.log("Failed to retrieve fields from storage, defaulting values")
 					//Enter in your config referenceName for "rvField" and "wsjfField"
                     this._selectedFields = {
-                        bvField: "Microsoft.VSTS.Common.BusinessValue",
-                        tcField: "Microsoft.VSTS.Common.TimeCriticality",
+                        bvField: "Microsoft.VSTS.Common.Severity",
+                        tcField: null,
                         rvField: null,
-                        effortField: "Microsoft.VSTS.Scheduling.Effort",
+                        effortField: null,
                         wsjfField: null
                     };
                 }
 
                 this.getSortedFieldsList().then((fieldList) => {
-                    Controls.create(Combo, bvContainer, this.getComboOptions("businessValue", fieldList, this._selectedFields.bvField));
-                    Controls.create(Combo, tcContainer, this.getComboOptions("timeCriticality", fieldList, this._selectedFields.tcField));
-                    Controls.create(Combo, rvContainer, this.getComboOptions("rroevalue", fieldList, this._selectedFields.rvField));
-                    Controls.create(Combo, effortContainer, this.getComboOptions("effort", fieldList, this._selectedFields.effortField));
-                    Controls.create(Combo, wsjfContainer, this.getComboOptions("wsjf", fieldList, this._selectedFields.wsjfField));
+                    Controls.create(Combo, bvContainer, this.getComboOptions("Severity", fieldList, this._selectedFields.bvField));
+                    Controls.create(Combo, tcContainer, this.getComboOptions("Occurence", fieldList, this._selectedFields.tcField));
+                    Controls.create(Combo, rvContainer, this.getComboOptions("Detection", fieldList, this._selectedFields.rvField));
+                    Controls.create(Combo, effortContainer, this.getComboOptions("UsersAffected", fieldList, this._selectedFields.effortField));
+                    Controls.create(Combo, wsjfContainer, this.getComboOptions("RPN", fieldList, this._selectedFields.wsjfField));
                     this.updateSaveButton();
 
                     VSS.notifyLoadSucceeded();

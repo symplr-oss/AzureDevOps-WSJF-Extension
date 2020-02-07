@@ -50,7 +50,7 @@ function updateWSJFOnForm(storedFields:StoredFieldReferences) {
 
                     var wsjf = 0;
                     if (effort > 0) {
-                        wsjf = (businessValue + timeCriticality + rroevalue)/effort;
+                        wsjf = (businessValue * timeCriticality * rroevalue *effort);
                     }
                     
                     service.setFieldValue(storedFields.wsjfField, wsjf);
@@ -81,7 +81,7 @@ function updateWSJFOnGrid(workItemId, storedFields:StoredFieldReferences):IPromi
 
             var wsjf = 0;
             if (effort > 0) {
-                wsjf = (businessValue + timeCriticality + rroevalue)/effort;
+                wsjf = (businessValue * timeCriticality * rroevalue * effort);
             }
 
             var document = [{
