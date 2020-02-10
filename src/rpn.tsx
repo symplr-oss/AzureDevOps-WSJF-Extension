@@ -30,11 +30,15 @@ function getWorkItemFormService()
 function updateRPNOnForm(storedFields:StoredFieldReferences) {
     getWorkItemFormService().then((service) => {
         service.getFields().then((fields: TFS_Wit_Contracts.WorkItemField[]) => {
-            var matchingSeverityValueFields = fields.filter(field => field.referenceName === storedFields.svField);
-            var matchingOccurenceFields = fields.filter(field => field.referenceName === storedFields.ocField);
-            var matchingDetectionFields = fields.filter(field => field.referenceName === storedFields.dtField);
-            var matchingUsersAffectedFields = fields.filter(field => field.referenceName === storedFields.usersField); 
+            var matchingSeverityValueFields = fields.filter(field => field.referenceName === storedFields.svField.charAt(0));
+            var matchingOccurenceFields = fields.filter(field => field.referenceName === storedFields.ocField.charAt(0));
+            var matchingDetectionFields = fields.filter(field => field.referenceName === storedFields.dtField.charAt(0));
+            var matchingUsersAffectedFields = fields.filter(field => field.referenceName === storedFields.usersField.charAt(0)); 
             var matchingRPNFields = fields.filter(field => field.referenceName === storedFields.rpnField);
+            // matchingSeverityValueFields = matchingSeverityValueFields.charAt(0);
+            // matchingOccurenceFields = matchingOccurenceFields.charAt(0);
+            // matchingDetectionFields = matchingDetectionFields.charAt(0);
+            // matchingUsersAffectedFields = matchingUsersAffectedFields.charAt(0);
 
             //If this work item type has RPN, then update RPN
             if ((matchingSeverityValueFields.length > 0) &&
@@ -74,10 +78,14 @@ function updateRPNOnGrid(workItemId, storedFields:StoredFieldReferences):IPromis
     var client = TFS_Wit_Client.getClient();
     client.getWorkItem(workItemId, rpnFields).then((workItem: TFS_Wit_Contracts.WorkItem) => {
         if (storedFields.rpnField !== undefined && storedFields.dtField !== undefined) {     
-            var severityValue = +workItem.fields[storedFields.svField];
-            var Occurence = +workItem.fields[storedFields.ocField];
-            var Detection = +workItem.fields [storedFields.dtField];
-            var UsersAffected = +workItem.fields[storedFields.usersField];
+            var severityValue = +workItem.fields[storedFields.svField.charAt(0)];
+            var Occurence = +workItem.fields[storedFields.ocField.charAt(0)];
+            var Detection = +workItem.fields [storedFields.dtField.charAt(0)];
+            var UsersAffected = +workItem.fields[storedFields.usersField.charAt(0)];
+            // severityValue = severityValue.charAt(0);
+            // Occurence = Occurence.charAt(0);
+            // Detection = Detection.charAt(0);
+            // UsersAffected = UsersAffected.charAt(0);
 
             var rpn = 0;
             if (UsersAffected > 0) {
