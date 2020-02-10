@@ -5,7 +5,7 @@
     <meta charset="utf-8" />
     <script src="lib/VSS.SDK.min.js"></script>
 
-    <link href="css/wsjfSettings.css" rel="stylesheet"></link>
+    <link href="css/rpnSettings.css" rel="stylesheet"></link>
 </head>
 <body>
     <script type="text/javascript">
@@ -16,7 +16,7 @@
         });
 
         // Load main entry point for extension
-        VSS.require(["scripts/wsjfSettings"], function (s) {
+        VSS.require(["scripts/rpnSettings"], function (s) {
             var settings = new s.Settings();
             settings.initialize();
         });

@@ -4,7 +4,7 @@ import TFS_Wit_Contracts = require("TFS/WorkItemTracking/Contracts");
 import TFS_Wit_Client = require("TFS/WorkItemTracking/RestClient");
 import TFS_Wit_Services = require("TFS/WorkItemTracking/Services");
 
-import { StoredFieldReferences } from "./wsjfModels";
+import { StoredFieldReferences } from "./rpnModels";
  
 function GetStoredFields(): IPromise<any> {
     var deferred = Q.defer();

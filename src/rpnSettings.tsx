@@ -6,7 +6,7 @@ import WIT_Client = require("TFS/WorkItemTracking/RestClient");
 import Contracts = require("TFS/WorkItemTracking/Contracts");
 import Utils_string = require("VSS/Utils/String");
 
-import { StoredFieldReferences } from "./wsjfModels";
+import { StoredFieldReferences } from "./rpnModels";
 
 export class Settings {
     private _changeMade = false;
@@ -89,9 +89,9 @@ export class Settings {
         header = $("<div />").addClass("description-text bowtie").appendTo(hubContent);
         header.html(Utils_string.format(descriptionText));
 
-        $("<img src='https://www.scaledagileframework.com/wp-content/uploads/2014/07/Figure-2.-A-formula-for-calculating-WSJF.png' />").addClass("description-image").appendTo(hubContent);
+        $("<img src='https://www.fmea-fmeca.com/images/fmea-rpn1.jpg' />").addClass("description-image").appendTo(hubContent);
         
-        descriptionText = "You must add a custom decimal field from the {0} to each work item type you wish to compute WSJF.";
+        descriptionText = "You must add a custom decimal field from the {0} to each work item type you wish to compute RPN.";
         header = $("<div />").addClass("description-text bowtie").appendTo(hubContent);
         header.html(Utils_string.format(descriptionText, "<a target='_blank' href='" + uri +"'>process hub</a>"));
 

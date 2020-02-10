@@ -2,8 +2,8 @@
     "public": false,
     "manifestVersion": 1,
     "id": "RPN-extension",
-    "publisher": "symplr-Agile-RPN",
-    "version": "1.0.0",
+    "publisher": "jschneider",
+    "version": "1.0.1",
     "name": "RPN (Risk Priority Number)",
     "description": "Auto calculates RPN (Risk Priority Number) per work item and stores it in a work item field.",
     "categories": [ "Azure Boards" ],
@@ -25,7 +25,7 @@
                 "ms.vss-work-web.work-item-form"
             ],
             "properties": {
-                "uri": "wsjf.html"
+                "uri": "rpn.html"
             }
         },
         {
@@ -36,8 +36,8 @@
                 "ms.vss-web.collection-admin-hub-group"
             ],
             "properties": {
-                "name": "WSJF",
-                "uri": "wsjfSettings.html"
+                "name": "RPN",
+                "uri": "rpnSettings.html"
             }
         },
         {
@@ -51,8 +51,8 @@
                 "text": "Recalculate RPN values",
                 "title": "Update the RPN value for the selected work items",
                 "icon": "images/icon-refresh.png",
-                "groupId": "SAFe",
-                "uri": "wsjf.html"
+                "groupId": "RPN",
+                "uri": "rpn.html"
             }
         }
     ],
@@ -71,11 +71,11 @@
             "packagePath": "scripts"
         },
         {
-            "path": "wsjf.html",
+            "path": "rpn.html",
             "addressable": true
         },
         {
-            "path": "wsjfSettings.html",
+            "path": "rpnSettings.html",
             "addressable": true
         },
         {
