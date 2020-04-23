@@ -3,13 +3,14 @@
     "manifestVersion": 1,
     "id": "RPN-extension",
     "publisher": "symplr",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "name": "RPN (Risk Priority Number)",
     "description": "Auto calculates RPN (Risk Priority Number) per work item and stores it in a work item field.",
     "categories": [ "Azure Boards" ],
     "tags": [
         "RPN",
-        "defect"
+        "defect",
+        "bug"
     ],
     "targets": [
         {

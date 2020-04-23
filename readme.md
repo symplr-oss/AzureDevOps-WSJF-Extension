@@ -13,12 +13,14 @@ Four values are used to calculate RPN (for our use here):
 
 # Setup
 1. The first thing you need is to create the fields that will store the RPN value.  [Create a custom decimal field](https://www.visualstudio.com/en-us/docs/work/process/customize-process-field#add-a-custom-field) through the process hub and add it to the work items you want to display RPN data on. 
-*NOTE*  These fields typically are integer or picklist-integer. However, in specific cases you can make these a string/picklist-string.  The format needs to be `<number>  - description of number`.  
+*NOTE*  These fields typically are integer or picklist-integer(Example: "1,2,3,4,5,6,7,8,9,10"). However, in specific cases you can make these a string/picklist-string.  In the case of using 'picklist-string', the format needs to be `<number>  - description of number`.  
 Example:
+```
 1 - low probability
 2 - medium probability
 10 - extra high probability
 100 - super mega-high chance of occurence
+```
 
 2. Navigate to the "RPN" hub on the collection settings admin experience.  From here, you must specify the fields that will be used for Severity, Occurence, Detection, Users Affected, and RPN.
 
